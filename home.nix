@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 
 { 
+   imports = [
+     ./programs/sway
+   ];
    home.username = "lait";
    home.homeDirectory = "/home/lait";
 
-#  home.packages = with pkgs; [
-#    git
-#  ];
+   home.packages = with pkgs; [
+   ];
   
    programs.git = {
      enable = true;
