@@ -39,6 +39,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.lait = import ./users/lait/home.nix;
+          home-manager.backupFileExtension = "hm_backup";
         }
       ];
     };

@@ -16,7 +16,7 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.timeout = null;
+  boot.loader.timeout = null;
   boot.loader.grub.extraEntries = ''
     menuentry "Reboot" {
       reboot
@@ -28,7 +28,7 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixer"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -66,7 +66,7 @@
   users.users.lait = {
     isNormalUser = true;
     description = "lait";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "uinput" ];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
@@ -90,6 +90,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    coreutils
     git
     gh
     wget
@@ -98,6 +99,9 @@
     firefox
     wezterm
     kitty
+    kanata
+    htop
+    rofi-wayland
   ];
 
   programs.vim.enable = true;
@@ -140,6 +144,22 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  hardware.uinput.enable = true;
+  services.kanata = {
+      enable = true;
+      keyboards = {
+          "logi".config = ''
+              (defsrc
+                caps
+              )
+              
+              (deflayer base
+                esc
+              )
+              '';
+      };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
