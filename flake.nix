@@ -32,13 +32,13 @@
         inherit inputs;
       };
       modules = [ 
-        ./configuration.nix 
+        ./hosts/nixer/configuration.nix 
 
         home-manager.nixosModules.home-manager 
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.lait = import ./home.nix;
+          home-manager.users.lait = import ./users/lait/home.nix;
         }
       ];
     };
