@@ -61,5 +61,7 @@ set ttimeoutlen =5
 set noesckeys
 set encoding	=utf-8
 set nowrap
+set noswapfile
+set scrolloff  =10
 
 silent! colorscheme gruvbox

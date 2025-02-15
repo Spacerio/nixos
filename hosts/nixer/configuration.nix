@@ -16,12 +16,10 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
+  boot.loader.grub.timeout = null;
   boot.loader.grub.extraEntries = ''
     menuentry "Reboot" {
       reboot
-    }
-    menuentry "Poweroff" {
-      halt
     }
   '';
   boot.loader.efi.canTouchEfiVariables = true;
