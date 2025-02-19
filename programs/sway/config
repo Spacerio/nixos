@@ -18,6 +18,8 @@ set $term foot
 # Your preferred application launcher
 set $menu wmenu-run
 
+set $browser firefox
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
@@ -62,6 +64,8 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    # Start browser
+    bindsym $mod+Shift+f exec $browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill

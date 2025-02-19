@@ -12,8 +12,11 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+" Plug 'jiangmiao/auto-pairs'
 call plug#end()
-" PlugUpdate to update 
+" PlugIntall to install 
 
 " Better navigation
 nnoremap <C-u> <C-u>zz
@@ -29,6 +32,11 @@ inoremap <C-k> :TmuxNavigateUp<cr>
 inoremap <C-l> :TmuxNavigateRight<cr>
 
 let g:NERDTreeShowHidden='1'
+
+filetype plugin indent on
+
+autocmd FileType nix setlocal softtabstop=2
+autocmd FileType nix setlocal shiftwidth=2
 
 set nocompatible
 filetype plugin indent on  " Load plugins according to detected filetype.
