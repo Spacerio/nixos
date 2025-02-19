@@ -3,5 +3,6 @@
     ./sway
     ./vim
     ./hyprland
+    ./waybar
   ];
 }

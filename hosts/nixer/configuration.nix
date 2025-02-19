@@ -18,8 +18,8 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.timeout = null;
   boot.loader.grub.extraEntries = ''
-    menuentry "Reboot" {
-      reboot
+    menuentry "PowerOff" {
+      halt
     }
   '';
   boot.loader.efi.canTouchEfiVariables = true;
@@ -55,6 +55,10 @@
     LC_TELEPHONE = "fi_FI.UTF-8";
     LC_TIME = "fi_FI.UTF-8";
   };
+
+  fonts.packages = with pkgs.unstable; [
+    nerd-fonts.jetbrains-mono
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -115,6 +119,7 @@
     enable = true;
     package = pkgs.unstable.hyprland;
   };
+  programs.waybar.enable = true;
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
