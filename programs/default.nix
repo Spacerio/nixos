@@ -5,6 +5,7 @@
     ./hyprland
     ./waybar
     ./tmux
+    ./terminal/fish.nix
   ];
 
   # copy nvim directory to .config/nvim

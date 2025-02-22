@@ -14,6 +14,7 @@
     bash-language-server
     lua-language-server
     alejandra
+	fzf
   ];
 
   programs.git = {
@@ -22,12 +23,6 @@
     userEmail = "oiva.laitinen2@gmail.com";
   };
 
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      lg = "lazygit";
-    };
-  };
 
   programs.helix.enable = true;
 
