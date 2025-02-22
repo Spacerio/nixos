@@ -6,6 +6,7 @@
     ./vim
     ./hyprland
     ./waybar
+	./tmux
   ];
 
   # copy nvim directory to .config/nvim
