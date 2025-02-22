@@ -8,16 +8,22 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    ...
+  } @ inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
       };
-      modules = [ 
-        ./configuration.nix 
+      modules = [
+        ./configuration.nix
 
-        home-manager.nixosModules.home-manager 
+        home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -31,10 +37,10 @@
       specialArgs = {
         inherit inputs;
       };
-      modules = [ 
-        ./hosts/nixer/configuration.nix 
+      modules = [
+        ./hosts/nixer/configuration.nix
 
-        home-manager.nixosModules.home-manager 
+        home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

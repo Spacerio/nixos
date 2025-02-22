@@ -1,12 +1,10 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   imports = [
     ./sway
     ./vim
     ./hyprland
     ./waybar
-	./tmux
+    ./tmux
   ];
 
   # copy nvim directory to .config/nvim

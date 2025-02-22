@@ -1,14 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
@@ -23,7 +25,6 @@
     }
   '';
   boot.loader.efi.canTouchEfiVariables = true;
-
 
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
@@ -66,12 +67,11 @@
     variant = "";
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lait = {
     isNormalUser = true;
     description = "lait";
-    extraGroups = [ "networkmanager" "wheel" "uinput" ];
+    extraGroups = ["networkmanager" "wheel" "uinput"];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
@@ -83,7 +83,6 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-
 
   nixpkgs.overlays = [
     (final: _prev: {
@@ -112,7 +111,7 @@
   ];
 
   programs.vim.enable = true;
-  
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -142,7 +141,7 @@
     [[ "$(tty)" == /dev/tty1 ]] && exec sway
   '';
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -165,18 +164,18 @@
 
   hardware.uinput.enable = true;
   services.kanata = {
-      enable = true;
-      keyboards = {
-          "logi".config = ''
-              (defsrc
-                caps
-              )
-              
-              (deflayer base
-                esc
-              )
-              '';
-      };
+    enable = true;
+    keyboards = {
+      "logi".config = ''
+        (defsrc
+          caps
+        )
+
+        (deflayer base
+          esc
+        )
+      '';
+    };
   };
 
   # This value determines the NixOS release from which the default
@@ -186,5 +185,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

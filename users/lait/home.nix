@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
-{ 
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../.././programs
   ];
@@ -11,7 +13,7 @@
     nil
     bash-language-server
     lua-language-server
-	alejandra
+    alejandra
   ];
 
   programs.git = {
@@ -24,10 +26,8 @@
     enable = true;
     shellAliases = {
       lg = "lazygit";
-
     };
   };
-
 
   programs.helix.enable = true;
 
