@@ -66,6 +66,7 @@
     variant = "";
   };
 
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lait = {
     isNormalUser = true;
@@ -83,6 +84,7 @@
     allowUnfree = true;
   };
 
+
   nixpkgs.overlays = [
     (final: _prev: {
       unstable = import inputs.nixpkgs-unstable {
@@ -95,6 +97,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     coreutils
+    gcc
     git
     gh
     wget
@@ -115,14 +118,18 @@
     wrapperFeatures.gtk = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.unstable.hyprland;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = pkgs.unstable.hyprland;
+  # };
   programs.waybar.enable = true;
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
+
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
+  # ];
 
   environment.variables = {
     EDITOR = "vim";

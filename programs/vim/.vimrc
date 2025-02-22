@@ -24,7 +24,7 @@ nnoremap <C-d> <C-d>zz
 
 nnoremap <space>s :so %<cr>
 nnoremap <space>e :NERDTree<cr>
-nnoremap <C-p> :Files <cr>
+nnoremap <C-p> :GitFiles <cr>
 
 inoremap <C-h> :TmuxNavigateLeft<cr>
 inoremap <C-j> :TmuxNavigateDown<cr>
