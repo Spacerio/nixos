@@ -65,6 +65,7 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+	bindsym $mod+Shift+Return exec kitty fish -c ta 
     # Start browser
     bindsym $mod+Shift+f exec $browser
 
