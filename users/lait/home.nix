@@ -15,6 +15,11 @@
     lua-language-server
     alejandra
 	fzf
+
+	ripgrep
+	unstable.yazi
+	broot
+	dust
   ];
 
   programs.git = {
@@ -23,6 +28,7 @@
     userEmail = "oiva.laitinen2@gmail.com";
   };
 
+  programs.ghostty.enable = true;
 
   programs.helix.enable = true;
 

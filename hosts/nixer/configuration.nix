@@ -100,6 +100,7 @@
     git
     gh
     wget
+	gnumake
     unstable.neovim
     lazygit
     firefox
@@ -108,6 +109,7 @@
     kanata
     htop
     rofi-wayland
+	waybar
   ];
 
   programs.vim.enable = true;
@@ -121,7 +123,6 @@
   #   enable = true;
   #   package = pkgs.unstable.hyprland;
   # };
-  programs.waybar.enable = true;
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
