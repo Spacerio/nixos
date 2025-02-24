@@ -8,6 +8,8 @@
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
 
+@import 'colors-waybar.css';
+
 * {
 	border: none;
 	border-radius: 10;
@@ -17,7 +19,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.1);
+    background-color: alpha(@color0, 0.2);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
     transition-property: background-color;
@@ -34,23 +36,23 @@ window#waybar.hidden {
 	padding-left: 7px;
     border: 0px;
     font-size: 14px;
-    color: @textcolor1;
+    color: @foreground;
 	background-color: rgba(0,0,0,0.7);
 }
 #workspaces button {
     border: 0px;
     margin:4px 5px 4px 0px;
     padding:0px 4px 0px 4px;
-    color: @textcolor3;
+    color: @foreground;
     transition: all 0.15s ease-in-out;
 }
 #workspaces button.active {
-    color: @textcolor1;
-    background: @workspacesbackground2;
+    color: @foreground;
+    background: @color2;
 }
 #workspaces button:hover {
-    color: @textcolor1;
-    background: @workspacesbackground2;
+    color: @foreground;
+    background: @color2;
     border-radius: 15px;
 }
 
@@ -58,14 +60,13 @@ window#waybar.hidden {
 #custom-exit,
 #clock,
 #window {
-    background: @backgroundlight;
+    background: @color2;
     margin: 5px 5px 5px 0px;
     padding: 0px 10px 0px 10px;
     border-radius: 12px;
-    color:@textcolor2;
+    color:@foreground;
     font-size:14px;
     font-weight:normal;
-    opacity:0.8;
 }
 
 #clock {
@@ -78,15 +79,16 @@ window#waybar.empty #window {
 
 
 #disk,#memory,#cpu,#network,#bluetooth,#custom-slash{
-    margin:3px;
-    padding:0px;
+    margin: -10px 3px -10px 3px;
+    padding: 0px;
+	border-radius: 40px;
     font-size:14px;
-    color:@textcolor0;
+    color:@foreground;
 }
 #hardware {
-	background-color: transparent;
-	padding-left: 10px;
-	padding-right: 10px;
+	background-color: alpha(@background, 0.3);
+	padding: 0px 5px 0px 10px;
+	border-radius: 30px;
 }
 #network.ethernet {
 	color: green;
