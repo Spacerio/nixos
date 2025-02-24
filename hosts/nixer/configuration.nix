@@ -71,7 +71,7 @@
   users.users.lait = {
     isNormalUser = true;
     description = "lait";
-    extraGroups = ["networkmanager" "wheel" "uinput"];
+    extraGroups = ["networkmanager" "wheel" "uinput" "audio"];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
@@ -109,7 +109,13 @@
     kanata
     htop
     rofi-wayland
+	wofi
 	waybar
+	pywal
+	wlogout
+	hyprland
+	unstable.hyprpaper
+	swww
   ];
 
   programs.vim.enable = true;
@@ -162,6 +168,11 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  hardware.pulseaudio.enable = true;
+  nixpkgs.config.pulseaudio = true;
+  hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
+  services.pipewire.enable = false;
 
   hardware.uinput.enable = true;
   services.kanata = {
