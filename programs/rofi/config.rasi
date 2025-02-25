@@ -1,0 +1,19 @@
+@import "~/.cache/wal/colors-rofi.rasi"
+
+configuration {
+	modi: "drun";
+	show-icons: true;
+	icon-theme: "Papirus-Apps";
+    display-drun: " ";
+	hide-scrollbar: true;
+	opacity: 0.5;
+    font: "JetBrains Mono Nerd Font 12";
+}
+
+window {
+	transparency: "real";
+	width: 40%;
+	height: 50%;
+	border-radius: 30px;
+	border: 12px;
+}
