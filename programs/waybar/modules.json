@@ -10,6 +10,31 @@
 		"format": "{:%H:%M %a}"
 	},
 
+	"pulseaudio/slider": {
+		"min": 0,
+		"max": 100,
+	},
+
+	"pulseaudio": {
+		"scroll-step": 5, // %, can be a float
+		"format": "{icon}{volume}%",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": " ",
+			"hands-free": " ",
+			"headset": " ",
+			"phone": " ",
+			"portable": " ",
+			"car": " ",
+			"default": [" ", " ", " "]
+		},
+		"on-click": "pavucontrol"
+	},
+
 
 	"cpu": {
 		"format": " {usage}%",
@@ -21,7 +46,7 @@
 	},
 	"disk": {
 		"interval": 30,
-		"format": "/ 󰋊 {percentage_used}% ",
+		"format": "/ 󰋊 {percentage_used}%",
 		"path": "/",
 		"on-click": "~/.config/ml4w/settings/system-monitor.sh"
 	},
@@ -53,4 +78,5 @@
 		"format": "",
 		"on-click": "wlogout",
 	},
+
 }

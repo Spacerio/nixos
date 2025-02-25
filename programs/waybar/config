@@ -13,7 +13,8 @@
 
 
 	"modules-left": [
-		"hyprland/window"
+		"group/hardware",
+		"pulseaudio",
 	],
 
 	"modules-center": [
@@ -21,7 +22,7 @@
 	],
 
 	"modules-right": [
-		"group/hardware",
+		"hyprland/window",
 		"clock",
 		"custom/exit"
 	],
@@ -29,13 +30,13 @@
 	"group/hardware": {
 		"orientation": "horizontal",
 		"modules": [
+			"cpu",
+			"memory",
+			"disk",
+			"custom/slash",
 			"bluetooth",
 			"custom/slash",
 			"network",
-			"custom/slash",
-			"cpu",
-			"memory",
-			"disk"
 		]
 	},
 
@@ -43,5 +44,6 @@
         "all-outputs": true,
         "tooltip": false
     },
+
 
 }

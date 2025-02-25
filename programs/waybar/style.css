@@ -33,20 +33,24 @@ window#waybar.hidden {
 
  #workspaces {
     margin: 3px 7px 3px 3px;
-	padding-left: 7px;
+	padding-left: 5px;
     border: 0px;
     font-size: 14px;
+	border-radius: 14px;
     color: @foreground;
-	background-color: rgba(0,0,0,0.7);
+	background-color: alpha(@background, 0.7);
 }
 #workspaces button {
     border: 0px;
     margin:4px 5px 4px 0px;
     padding:0px 4px 0px 4px;
     color: @foreground;
-    transition: all 0.15s ease-in-out;
+	/* transition: all 0.3s cubic-bezier( 0.81, 0.31, 0.33, 0.72 ); */
+	transition: all 0.3s ease;
 }
 #workspaces button.active {
+	/* background-size: 400% 400%; */
+	min-width: 30px;
     color: @foreground;
     background: @color2;
 }
@@ -59,6 +63,7 @@ window#waybar.hidden {
 
 #custom-exit,
 #clock,
+#pulseaudio,
 #window {
     background: @color2;
     margin: 5px 5px 5px 0px;
@@ -79,26 +84,33 @@ window#waybar.empty #window {
 
 
 #disk,#memory,#cpu,#network,#bluetooth,#custom-slash{
-    margin: -10px 3px -10px 3px;
+    margin: 0px 4px 0px 3px;
     padding: 0px;
-	border-radius: 40px;
     font-size:14px;
     color:@foreground;
 }
 #hardware {
-	background-color: alpha(@background, 0.3);
-	padding: 0px 5px 0px 10px;
-	border-radius: 30px;
+    background: @color2;
+    margin: 5px 5px 5px 5px;
+    padding: 0px 5px 0px 5px;
+    border-radius: 12px;
+    color:@foreground;
+    font-size:14px;
+    font-weight:normal;
 }
-#network.ethernet {
-	color: green;
-}
-#network.disconnected, #bluetooth.no-controller{
-	color: red;
-}
+/* #network.ethernet { */
+/* 	color: green; */
+/* } */
+/* #network.disconnected, #bluetooth.no-controller{ */
+/* 	color: red; */
+/* } */
 
 #custom-exit {
 	padding-left: 7px;
 	padding-right: 11px;
 	margin-left: 0px;
+}
+
+#pulseaudio-slider {
+	min-width: 100px;
 }
