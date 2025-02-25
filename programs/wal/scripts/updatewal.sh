@@ -4,7 +4,7 @@ img=$(find ~/.dotfiles/imgs -type f | wofi -d)
 
 echo "$img"
 
-wal -qi "$img"
+wal -qsi "$img"
 
 cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
 

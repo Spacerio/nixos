@@ -4,6 +4,7 @@
     enable = true;
     shellAliases = {
       lg = "lazygit";
+	  v = "nvim .";
     };
 	functions = {
 		ta = ''

@@ -109,6 +109,7 @@
     htop
     rofi-wayland
 	wofi
+	unstable.tofi
 	waybar
 	pywal
 	wlogout
