@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
-img=$(find ~/.dotfiles/imgs -type f | wofi -d)
+wd=~/.dotfiles/imgs
 
-echo "$img"
+
+file=/tmp/wpFile
+kitty yazi $wd --chooser-file $file
+img=$(cat $file)
+
+# img=$(find ~/.dotfiles/imgs -type f | wofi -d)
+
+echo "$img" >> /tmp/txt
 
 wal -qsi "$img"
 
 cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
-
 cp "$img" ~/.cache/wallpaper
 
-swww img "$img"
+swww img "$img" --transition-step 5 -t wave
  
 pkill waybar; waybar &
