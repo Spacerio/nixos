@@ -98,7 +98,6 @@
     coreutils
     gcc
     git
-    gh
     wget
 	gnumake
     unstable.neovim

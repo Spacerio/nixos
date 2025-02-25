@@ -22,10 +22,14 @@
 	dust
   ];
 
+  programs.gh.enable = true;
   programs.git = {
     enable = true;
     userName = "Oiva Laitinen";
     userEmail = "oiva.laitinen2@gmail.com";
+	extraConfig = {
+		credential.helper = "oauth";
+	};
   };
 
   programs.ghostty.enable = true;
