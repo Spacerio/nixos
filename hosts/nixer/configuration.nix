@@ -113,8 +113,10 @@
 	pywal
 	wlogout
 	hyprland
-	unstable.hyprpaper
+	hyprpaper
+	hyprlock
 	swww
+	grim
   ];
 
   programs.vim.enable = true;
@@ -126,11 +128,15 @@
 
   # programs.hyprland = {
   #   enable = true;
-  #   package = pkgs.unstable.hyprland;
   # };
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
+
+  programs.nh = {
+	  enable = true;
+	  flake = "/home/lait/nixos";
+  };
 
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
@@ -144,7 +150,7 @@
   };
 
   environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && exec sway
+    [[ "$(tty)" == /dev/tty1 ]] && exec Hyprland
   '';
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
