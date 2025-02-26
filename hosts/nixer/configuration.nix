@@ -10,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+  	inputs.spicetify-nix.nixosModules.default
   ];
 
   # Bootloader.
@@ -128,10 +129,8 @@
 	sink-rotate
 	bluetuith
 
-	spotify
 	ncspot
 	cava
-	spicetify-cli
   ];
 
   programs.vim.enable = true;
@@ -152,6 +151,34 @@
 	  enable = true;
 	  flake = "/home/lait/nixos";
   };
+
+  programs.spicetify =
+  let
+	  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in
+  {
+	  enable = true;
+	  # theme = spicePkgs.themes.text;
+	  # colorScheme = "CatppuccinMocha";
+	  theme = spicePkgs.themes.bloom;
+	  colorScheme = "Dark";
+	  
+	  enabledExtensions = with spicePkgs.extensions; [
+		  adblock
+		  hidePodcasts
+		  shuffle # shuffle+ (special characters are sanitized out of extension names)
+		  fullAppDisplayMod
+		  keyboardShortcut
+	  ];
+	  enabledCustomApps = with spicePkgs.apps; [
+		  newReleases
+	  ];
+	  enabledSnippets = with spicePkgs.snippets; [
+		  rotatingCoverart
+		  pointer
+	  ];
+  };
+
 
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
