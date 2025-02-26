@@ -36,6 +36,18 @@
 
   programs.helix.enable = true;
 
+  gtk = {
+	  enable = true;
+	  theme = {
+		  package = pkgs.orchis-theme;
+		  name = "Orchis-Grey-Dark";
+	  };
+	  iconTheme = {
+		  package = pkgs.tela-icon-theme;
+		  name = "Tela-blue-dark";
+	  };
+  };
+
   manual.manpages.enable = true;
 
   home.stateVersion = "24.11";
