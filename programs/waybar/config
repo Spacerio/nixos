@@ -23,6 +23,7 @@
 
 	"modules-right": [
 		"hyprland/window",
+		"temperature",
 		"clock",
 		"custom/exit"
 	],

@@ -19,8 +19,8 @@
 		"scroll-step": 5, // %, can be a float
 		"format": "{icon}{volume}%",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
-		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": " {format_source}",
+		"format-bluetooth-muted": "󰝟 {icon} {format_source}",
+		"format-muted": "󰝟 {format_source}",
 		"format-source": "{volume}% ",
 		"format-source-muted": "",
 		"format-icons": {
@@ -32,7 +32,9 @@
 			"car": " ",
 			"default": [" ", " ", " "]
 		},
-		"on-click": "pavucontrol"
+		"on-click": "sink-rotate",
+		"on-click-right": "pavucontrol-qt",
+		"on-click-middle": "pulsemixer --toggle-mute"
 	},
 
 
@@ -65,18 +67,28 @@
 	},
 	"bluetooth": {
 		"format": " {status}",
-		"format-disabled": " no-bluetooth",
+		"format-disabled": " disabled",
 		"format-off": " off",
 		"format-no-controller": " 󰖻",
+		"format-connected": "󰂯 {device_alias}",
+		"format-connected-battery": "󰥉 {device_battery_percentage}%",
+		"tooltip-format": "{status}\n{controller_alias}",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 		"interval": 30,
 		"on-click": "blueman-manager",
 	},
 	"custom/slash": {
-		"format": "/"
+		"format": "/",
+		"tooltip": false,
 	},
 	"custom/exit": {
 		"format": "",
 		"on-click": "wlogout",
 	},
-
+	"temperature": {
+		"format": "{temperatureC}°C ",
+		"interval": 10,
+		"thermal-zone": 4 // cpu
+	}
 }

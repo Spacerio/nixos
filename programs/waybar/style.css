@@ -19,7 +19,7 @@
 }
 
 window#waybar {
-    background-color: alpha(@color4, 0.1);
+    background-color: alpha(@color4, 0.0);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
     transition-property: background-color;
@@ -64,6 +64,7 @@ window#waybar.hidden {
 #custom-exit,
 #clock,
 #pulseaudio,
+#temperature,
 #window {
     background: @color2;
     margin: 5px 5px 5px 0px;
