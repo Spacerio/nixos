@@ -19,7 +19,7 @@
 }
 
 window#waybar {
-    background-color: alpha(@color0, 0.2);
+    background-color: alpha(@color4, 0.1);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
     transition-property: background-color;
