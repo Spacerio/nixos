@@ -19,3 +19,4 @@ cp "$img" ~/.cache/wallpaper
 swww img "$img" --transition-step 5 -t wave
  
 pkill waybar; waybar &
+kitty @ action load_config_file

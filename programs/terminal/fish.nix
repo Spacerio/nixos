@@ -3,7 +3,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      lg = "lazygit";
+	  lg = "lazygit -ucf='/home/lait/.config/lazygit/config.yml,/home/lait/.cache/wal/colors-lazygit.yml'";
 	  v = "nvim .";
     };
 	functions = {
