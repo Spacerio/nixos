@@ -107,17 +107,31 @@
     kitty
     kanata
     htop
+	btop
+
     rofi-wayland
 	wofi
 	unstable.tofi
 	waybar
 	pywal
 	wlogout
-	hyprland
 	hyprpaper
 	hyprlock
 	swww
 	grim
+	slurp
+
+	pavucontrol
+	lxqt.pavucontrol-qt
+	easyeffects
+	pulsemixer
+	sink-rotate
+	bluetuith
+
+	spotify
+	ncspot
+	cava
+	spicetify-cli
   ];
 
   programs.vim.enable = true;
@@ -127,9 +141,9 @@
     wrapperFeatures.gtk = true;
   };
 
-  # programs.hyprland = {
-  #   enable = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+  };
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
@@ -142,6 +156,10 @@
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
   # ];
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
   environment.variables = {
     EDITOR = "vim";
@@ -175,10 +193,25 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  hardware.pulseaudio.enable = true;
-  nixpkgs.config.pulseaudio = true;
-  hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
-  services.pipewire.enable = false;
+  #enable audio through pipewire
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
+  services.pipewire = {
+	  enable = true;
+	  alsa.enable = true;
+	  pulse.enable = true;
+	  jack.enable = true;
+  };
+
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  # hardware.pulseaudio.enable = true;
+  # nixpkgs.config.pulseaudio = true;
+  # hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
+  # services.pipewire.enable = false;
 
   hardware.uinput.enable = true;
   services.kanata = {
