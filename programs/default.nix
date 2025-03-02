@@ -6,7 +6,7 @@
     ./waybar
     ./tmux
     ./terminal/fish.nix
-	./kitty
+    ./kitty
   ];
 
   # copy nvim directory to .config/nvim

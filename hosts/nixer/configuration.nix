@@ -10,7 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-  	inputs.spicetify-nix.nixosModules.default
+    inputs.spicetify-nix.nixosModules.default
   ];
 
   # Bootloader.
@@ -61,8 +61,8 @@
 
   fonts.packages = with pkgs.unstable; [
     nerd-fonts.jetbrains-mono
-	nerd-fonts.iosevka
-	nerd-fonts.fira-code
+    nerd-fonts.iosevka
+    nerd-fonts.fira-code
   ];
 
   # Configure keymap in X11
@@ -102,7 +102,7 @@
     gcc
     git
     wget
-	gnumake
+    gnumake
     unstable.neovim
     lazygit
     firefox
@@ -110,29 +110,29 @@
     kitty
     kanata
     htop
-	btop
+    btop
 
     rofi-wayland
-	wofi
-	unstable.tofi
-	waybar
-	pywal
-	wlogout
-	hyprpaper
-	hyprlock
-	swww
-	grim
-	slurp
+    wofi
+    unstable.tofi
+    waybar
+    pywal
+    wlogout
+    hyprpaper
+    hyprlock
+    swww
+    grim
+    slurp
 
-	pavucontrol
-	lxqt.pavucontrol-qt
-	easyeffects
-	pulsemixer
-	sink-rotate
-	bluetuith
+    pavucontrol
+    lxqt.pavucontrol-qt
+    easyeffects
+    pulsemixer
+    sink-rotate
+    bluetuith
 
-	ncspot
-	cava
+    ncspot
+    cava
   ];
 
   programs.vim.enable = true;
@@ -150,46 +150,43 @@
   programs.zsh.enable = true;
 
   programs.nh = {
-	  enable = true;
-	  flake = "/home/lait/nixos";
+    enable = true;
+    flake = "/home/lait/nixos";
   };
 
-  programs.spicetify =
-  let
-	  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in
-  {
-	  enable = true;
-	  # theme = spicePkgs.themes.text;
-	  # colorScheme = "CatppuccinMocha";
-	  theme = spicePkgs.themes.bloom;
-	  colorScheme = "Dark";
-	  
-	  enabledExtensions = with spicePkgs.extensions; [
-		  adblock
-		  hidePodcasts
-		  shuffle # shuffle+ (special characters are sanitized out of extension names)
-		  fullAppDisplayMod
-		  keyboardShortcut
-	  ];
-	  enabledCustomApps = with spicePkgs.apps; [
-		  newReleases
-	  ];
-	  enabledSnippets = with spicePkgs.snippets; [
-		  rotatingCoverart
-		  pointer
-	  ];
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in {
+    enable = true;
+    # theme = spicePkgs.themes.text;
+    # colorScheme = "CatppuccinMocha";
+    theme = spicePkgs.themes.bloom;
+    colorScheme = "Dark";
+
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      hidePodcasts
+      shuffle # shuffle+ (special characters are sanitized out of extension names)
+      fullAppDisplayMod
+      keyboardShortcut
+    ];
+    enabledCustomApps = with spicePkgs.apps; [
+      newReleases
+    ];
+    enabledSnippets = with spicePkgs.snippets; [
+      rotatingCoverart
+      pointer
+    ];
   };
 
   programs.bash = {
-	  interactiveShellInit = ''
-		  if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]] then
-			  shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-			  exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-		  fi
-	  '';
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]] then
+       shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+       exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
   };
-
 
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
@@ -236,10 +233,10 @@
   security.rtkit.enable = true;
 
   services.pipewire = {
-	  enable = true;
-	  alsa.enable = true;
-	  pulse.enable = true;
-	  jack.enable = true;
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
   services.blueman.enable = true;
