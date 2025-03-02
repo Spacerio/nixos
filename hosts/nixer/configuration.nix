@@ -61,6 +61,8 @@
 
   fonts.packages = with pkgs.unstable; [
     nerd-fonts.jetbrains-mono
+	nerd-fonts.iosevka
+	nerd-fonts.fira-code
   ];
 
   # Configure keymap in X11
@@ -74,7 +76,6 @@
     isNormalUser = true;
     description = "lait";
     extraGroups = ["networkmanager" "wheel" "uinput" "audio"];
-    packages = with pkgs; [];
     shell = pkgs.fish;
   };
 
