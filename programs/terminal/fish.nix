@@ -1,4 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: 
+
+let
+	plugin = name: { name = "${name}"; src = pkgs.fishPlugins.${name}.src; };
+in 
+
+{
+
 	
   programs.fish = {
     enable = true;
@@ -6,6 +13,11 @@
 	  lg = "lazygit -ucf='/home/lait/.config/lazygit/config.yml,/home/lait/.cache/wal/colors-lazygit.yml'";
 	  v = "nvim .";
     };
+	plugins = map plugin [
+		"tide"
+		"fzf"
+		"z"
+	];
 	functions = {
 		ta = ''
 			if set -q argv[1]
