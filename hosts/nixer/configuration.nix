@@ -37,8 +37,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";
@@ -235,10 +233,34 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  networking = {
+	networkmanager.enable = true;
+	# # not working, need to figure out atleast subnets
+	# dhcpcd.enable = false;
+	# enableIPv6 = false;
+	# nameservers = [ "8.8.8.8" "0.0.0.0" ];
+	# interfaces.enp4s0 = {
+	#   ipv4.addresses = [{
+	# 	address = "91.154.72.10";
+	# 	prefixLength = 24;
+	#   }];
+	# };
+	# defaultGateway = {
+	#   address = "192.0.2.1";
+	#   interface = "enp4s0";
+	# };
+  };
+
+	#  systemd.network.enable = true;
+	#  systemd.network.networks."enp4s0" = {
+	# matchConfig.Name = "lan";
+	# networkConfig = {
+	# };
+	#  };
+
   #enable audio through pipewire
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
