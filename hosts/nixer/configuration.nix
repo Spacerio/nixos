@@ -106,6 +106,8 @@
     unstable.neovim
     lazygit
     firefox
+	unstable.librewolf
+	unstable.floorp
     wezterm
     kitty
     kanata
@@ -152,6 +154,11 @@
   programs.nh = {
     enable = true;
     flake = "/home/lait/nixos";
+  };
+
+  xdg.portal = {
+	enable = true;
+	extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   programs.spicetify = let
