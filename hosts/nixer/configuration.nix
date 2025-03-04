@@ -101,7 +101,6 @@
     git
     wget
     gnumake
-    unstable.neovim
     lazygit
     firefox
 	unstable.librewolf
@@ -133,6 +132,9 @@
 
     ncspot
     cava
+
+	# update with flake update neovim-nightly
+	inputs.neovim-nightly.packages.${pkgs.system}.default
   ];
 
   programs.vim.enable = true;
