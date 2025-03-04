@@ -196,6 +196,25 @@
     '';
   };
 
+  # TODO: needs to be cloned before making symlinks etc.
+  # possibly need to use home.activation or similar
+  systemd.services.dofiles = {
+	enable = true;
+	wantedBy = ["multi-user.target"];
+	serviceConfig = {
+	  ExecStart = "${pkgs.writeShellScript "watch-store" ''
+		  #!/usr/bin/env bash
+		  if [ ! -d /home/lait/dotfiles ]; then
+			echo "Cloning dotfiles into ~/dotfiles"
+			${pkgs.git}/bin/git clone https://github.com/spacerio/.dotfiles.git /home/lait/dotfiles
+			chown -R lait /home/lait/dotfiles
+		  else
+			echo "Not cloning dotfiles"
+		  fi
+		''}";
+	};
+  };
+
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
   # ];
