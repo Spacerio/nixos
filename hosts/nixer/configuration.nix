@@ -146,6 +146,7 @@
 
   programs.hyprland = {
     enable = true;
+	package = pkgs.unstable.hyprland;
   };
 
   programs.fish.enable = true;
