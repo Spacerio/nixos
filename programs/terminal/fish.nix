@@ -53,9 +53,8 @@ in {
       	export FZF_DEFAULT_COMMAND='fd -H -E .git .'
       end
 
-      # if ! command -q fisher
-      # 	curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-      # end
+
+	  bind \en 'nvim -c ":lua Snacks.picker.smart()"'  
 
       set -gx fish_greeting
       set -gx EDITOR nvim
