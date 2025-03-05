@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../programs
+    ../modules
   ];
   home.username = "lait";
   home.homeDirectory = "/home/lait";
