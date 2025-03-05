@@ -102,6 +102,7 @@
     wget
     gnumake
     lazygit
+	gitui
     firefox
 	unstable.librewolf
 	unstable.floorp
@@ -111,11 +112,14 @@
 
     htop
     btop
+	bottom
     fzf
     ripgrep
 	fd
 	bat
+	eza
 	dust
+	nix-init
 
     rofi-wayland
     wofi
@@ -137,6 +141,7 @@
     bluetuith
 
     ncspot
+	spotify-player
     cava
 
 	# update with flake update neovim-nightly
