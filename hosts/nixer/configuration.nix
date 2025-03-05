@@ -165,7 +165,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/lait/nixos";
+    flake = "/home/lait/dotfiles/nixos";
   };
 
   xdg.portal = {
