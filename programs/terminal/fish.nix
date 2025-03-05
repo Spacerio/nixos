@@ -43,6 +43,17 @@ in {
         	printf "\t h or help to print this message\n"
         end
       '';
+	  ve = ''
+		set -l excludes .git node_module .cache .npm .mozilla .meteor .nv
+		set -l fd_command fd --type d --hidden
+		for exclude in $excludes
+			set fd_command $fd_command --exclude $exclude
+		end
+		set -l file ($fd_command | fzf)
+
+	    test -n "$file" && nvim $file
+
+	  '';
     };
     interactiveShellInit = ''
       # if command -q tmux && [ "$TERM" != "tmux" ] && [ -z "$TMUX" ]
@@ -55,6 +66,7 @@ in {
 
 
 	  bind \en 'nvim -c ":lua Snacks.picker.smart()"'  
+	  bind \ed 've'  
 
       set -gx fish_greeting
       set -gx EDITOR nvim

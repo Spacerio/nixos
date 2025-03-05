@@ -14,9 +14,7 @@
     bash-language-server
     lua-language-server
     alejandra
-    fzf
 
-    ripgrep
     unstable.yazi
     broot
     dust

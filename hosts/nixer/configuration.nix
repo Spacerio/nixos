@@ -108,8 +108,14 @@
     wezterm
     kitty
     kanata
+
     htop
     btop
+    fzf
+    ripgrep
+	fd
+	bat
+	dust
 
     rofi-wayland
     wofi
