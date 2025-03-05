@@ -1,3 +1,0 @@
-[submodule "programs/nvim"]
-	path = modules/nvim
-	url = https://github.com/spacerio/nvim
