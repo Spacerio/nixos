@@ -104,10 +104,13 @@
     lazygit
 	gitui
     firefox
+	qutebrowser
 	unstable.librewolf
 	unstable.floorp
+	jetbrains.rider
     wezterm
     kitty
+	tmux
     kanata
 
     htop

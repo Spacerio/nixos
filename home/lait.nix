@@ -13,11 +13,11 @@
     nil
     bash-language-server
     lua-language-server
+	csharp-ls
     alejandra
 
     unstable.yazi
     broot
-    dust
   ];
 
   programs.gh.enable = true;
