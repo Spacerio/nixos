@@ -107,6 +107,7 @@
 	qutebrowser
 	unstable.librewolf
 	unstable.floorp
+	keepassxc
 	jetbrains.rider
     wezterm
     kitty
@@ -129,9 +130,10 @@
     unstable.tofi
     waybar
     pywal
-    wlogout
+	pyprland
     hyprpaper
     hyprlock
+    wlogout
     swww
     grim
     slurp
