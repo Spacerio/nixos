@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../modules
+	../modules/terminal/fish.nix
   ];
   home.username = "lait";
   home.homeDirectory = "/home/lait";
