@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     nil
+    nixd
     bash-language-server
     lua-language-server
 	csharp-ls
@@ -35,8 +36,11 @@
 
   programs.ghostty.enable = true;
 
-  programs.helix.enable = true;
-
+  programs.helix = {
+    enable = true;
+    package = pkgs.unstable.helix;
+  };
+  
   gtk = {
     enable = true;
     theme = {
