@@ -51,9 +51,9 @@ in {
         for exclude in $excludes
           set fd_command $fd_command --exclude $exclude
         end
-        set -l file ($fd_command | fzf)
+        set -l dir ($fd_command | fzf)
 
-        test -n "$file" && nvim $file
+        test -n "$dir" && nvim $dir
 
       '';
 
