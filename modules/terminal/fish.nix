@@ -67,10 +67,6 @@ in {
         '';
     };
     interactiveShellInit = ''
-      # if command -q tmux && [ "$TERM" != "tmux" ] && [ -z "$TMUX" ]
-      # 	ta
-      # end
-
       if command -q fd
       	export FZF_DEFAULT_COMMAND='fd -H -E .git .'
       end

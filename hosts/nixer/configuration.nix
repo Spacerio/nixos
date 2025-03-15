@@ -125,6 +125,8 @@
 	eza
 	dust
 	nix-init
+    nix-index
+    nix-inspect
 
     rofi-wayland
     wofi
@@ -144,6 +146,7 @@
     easyeffects
     pulsemixer
     sink-rotate
+    bluetui
     bluetuith
 
     ncspot
@@ -213,9 +216,13 @@
     '';
   };
 
-  # programs.nix-ld.enable = true;
-  # programs.nix-ld.libraries = with pkgs; [
-  # ];
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      ncurses.dev
+    ];
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
