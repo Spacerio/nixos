@@ -5,7 +5,7 @@
   ...
 }: {
   options.virtualization = {
-  	enabled = lib.mkOption {
+    enabled = lib.mkOption {
       default = true;
       type = lib.types.bool;
       description = "enable virtualization or not";
@@ -15,6 +15,6 @@
     programs.virt-manager.enable = true;
     virtualisation.libvirtd.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
-    users.groups.libvirtd.members = [ "lait" ];
+    users.groups.libvirtd.members = ["lait"];
   };
 }

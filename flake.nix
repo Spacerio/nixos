@@ -10,8 +10,8 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-	neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-	neovim-nightly.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs = {

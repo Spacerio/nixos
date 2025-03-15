@@ -38,7 +38,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";
   time.hardwareClockInLocalTime = true;
@@ -103,28 +102,28 @@
     wget
     gnumake
     lazygit
-	gitui
+    gitui
     firefox
-	qutebrowser
-	unstable.librewolf
-	unstable.floorp
-	keepassxc
-	jetbrains.rider
+    qutebrowser
+    unstable.librewolf
+    unstable.floorp
+    keepassxc
+    jetbrains.rider
     wezterm
     kitty
-	tmux
+    tmux
     kanata
 
     htop
     btop
-	bottom
+    bottom
     fzf
     ripgrep
-	fd
-	bat
-	eza
-	dust
-	nix-init
+    fd
+    bat
+    eza
+    dust
+    nix-init
     nix-index
     nix-inspect
 
@@ -133,7 +132,7 @@
     unstable.tofi
     waybar
     pywal
-	pyprland
+    pyprland
     hyprpaper
     hyprlock
     wlogout
@@ -150,11 +149,11 @@
     bluetuith
 
     ncspot
-	spotify-player
+    spotify-player
     cava
 
-	# update with flake update neovim-nightly
-	inputs.neovim-nightly.packages.${pkgs.system}.default
+    # update with flake update neovim-nightly
+    inputs.neovim-nightly.packages.${pkgs.system}.default
   ];
 
   programs.vim.enable = true;
@@ -166,7 +165,7 @@
 
   programs.hyprland = {
     enable = true;
-	package = pkgs.unstable.hyprland;
+    package = pkgs.unstable.hyprland;
   };
 
   programs.fish.enable = true;
@@ -178,8 +177,8 @@
   };
 
   xdg.portal = {
-	enable = true;
-	extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   programs.spicetify = let
@@ -261,29 +260,29 @@
   # networking.firewall.enable = false;
 
   networking = {
-	networkmanager.enable = true;
-	# # not working, need to figure out atleast subnets
-	# dhcpcd.enable = false;
-	# enableIPv6 = false;
-	# nameservers = [ "8.8.8.8" "0.0.0.0" ];
-	# interfaces.enp4s0 = {
-	#   ipv4.addresses = [{
-	# 	address = "91.154.72.10";
-	# 	prefixLength = 24;
-	#   }];
-	# };
-	# defaultGateway = {
-	#   address = "192.0.2.1";
-	#   interface = "enp4s0";
-	# };
+    networkmanager.enable = true;
+    # # not working, need to figure out atleast subnets
+    # dhcpcd.enable = false;
+    # enableIPv6 = false;
+    # nameservers = [ "8.8.8.8" "0.0.0.0" ];
+    # interfaces.enp4s0 = {
+    #   ipv4.addresses = [{
+    # 	address = "91.154.72.10";
+    # 	prefixLength = 24;
+    #   }];
+    # };
+    # defaultGateway = {
+    #   address = "192.0.2.1";
+    #   interface = "enp4s0";
+    # };
   };
 
-	#  systemd.network.enable = true;
-	#  systemd.network.networks."enp4s0" = {
-	# matchConfig.Name = "lan";
-	# networkConfig = {
-	# };
-	#  };
+  #  systemd.network.enable = true;
+  #  systemd.network.networks."enp4s0" = {
+  # matchConfig.Name = "lan";
+  # networkConfig = {
+  # };
+  #  };
 
   #enable audio through pipewire
   hardware.pulseaudio.enable = false;
@@ -322,9 +321,9 @@
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
-	modesetting.enable = true;
-	nvidiaSettings = true;
-	open = true;
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    open = true;
   };
 
   # This value determines the NixOS release from which the default

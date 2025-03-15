@@ -5,7 +5,7 @@
 }: {
   imports = [
     ../modules
-	../modules/terminal/fish.nix
+    ../modules/terminal/fish.nix
   ];
   home.username = "lait";
   home.homeDirectory = "/home/lait";
@@ -15,7 +15,7 @@
     nixd
     bash-language-server
     lua-language-server
-	csharp-ls
+    csharp-ls
     clang-tools
     gdb
     alejandra
@@ -23,7 +23,7 @@
     unstable.yazi
     broot
 
-	wordnet
+    wordnet
   ];
 
   programs.gh.enable = true;
@@ -42,7 +42,7 @@
     enable = true;
     package = pkgs.unstable.helix;
   };
-  
+
   gtk = {
     enable = true;
     theme = {
