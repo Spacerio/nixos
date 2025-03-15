@@ -16,6 +16,8 @@
     bash-language-server
     lua-language-server
 	csharp-ls
+    clang-tools
+    gdb
     alejandra
 
     unstable.yazi
