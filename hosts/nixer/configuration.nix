@@ -101,7 +101,7 @@
     git
     wget
     gnumake
-    lazygit
+    unstable.lazygit
     gitui
     firefox
     qutebrowser
