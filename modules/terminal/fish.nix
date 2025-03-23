@@ -12,9 +12,9 @@ in {
     enable = true;
     shellAliases = {
       lg = "lazygit -ucf='/home/lait/.config/lazygit/config.yml,/home/lait/.cache/wal/colors-lazygit.yml'";
-      ns = "nix-shell --run fish";
-      dev = "nix develop -c fish";
       v = "nvim .";
+      ns = "nix-shell --run fish";
+      dev = "nix develop";
     };
     plugins = map plugin [
       "tide"
@@ -56,6 +56,14 @@ in {
         test -n "$dir" && nvim $dir
 
       '';
+      m = ''
+        if type -q cargo; and [ -f Cargo.toml ]
+          cargo run
+        end
+        if [ -f Makefile ]
+          make
+        end
+      '';
 
       fzf_complete = ''
         set -l cmdline (commandline)
@@ -75,6 +83,7 @@ in {
 
 
       bind \en 'nvim -c ":lua Snacks.picker.smart()"'
+      bind \eg 'nvim -c ":lua Snacks.picker.grep()"'
       bind \ed 've'
       bind \eu 'fzf_complete; commandline -f repaint'
 
