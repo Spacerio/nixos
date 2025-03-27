@@ -23,6 +23,9 @@
     unstable.yazi
     broot
 
+    direnv
+    nix-direnv
+
     wordnet
   ];
 

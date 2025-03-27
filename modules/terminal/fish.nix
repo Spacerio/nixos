@@ -82,6 +82,7 @@ in {
       end
 
 
+
       bind \en 'nvim -c ":lua Snacks.picker.smart()"'
       bind \eg 'nvim -c ":lua Snacks.picker.grep()"'
       bind \ed 've'
@@ -93,7 +94,11 @@ in {
       # set -gx PAGER "nvim +Man!" # extremely slow
       set -gx MANWIDTH 999
       set -q nvm_default_version; or set -U nvm_default_version latest
-      fish_add_path $HOME/.cargo/bin $HOME/.local/share/bob/nvim-bin $HOME/.cabal/bin $HOME/.ghcup/bin $HOME/.local/bin
+      fish_add_path $HOME/.cargo/bin $HOME/.local/share/bob/nvim-bin $HOME/.cabal/bin $HOME/.ghcup/bin $HOME/.local/bin $home/.config/emacs/bin
+
+      if command -q direnv
+        direnv hook fish | source
+      end
     '';
   };
 }
