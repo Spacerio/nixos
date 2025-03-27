@@ -46,6 +46,11 @@
     package = pkgs.unstable.helix;
   };
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.unstable.emacs;
+  };
+
   gtk = {
     enable = true;
     theme = {

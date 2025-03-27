@@ -97,10 +97,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     coreutils
+    libtool
     gcc
     git
     wget
     gnumake
+    cmake
     unstable.lazygit
     gitui
     firefox
