@@ -26,6 +26,7 @@
     direnv
     nix-direnv
 
+    ispell
     wordnet
   ];
 
