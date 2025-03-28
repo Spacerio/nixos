@@ -97,6 +97,7 @@ in {
       fish_add_path $HOME/.cargo/bin $HOME/.local/share/bob/nvim-bin $HOME/.cabal/bin $HOME/.ghcup/bin $HOME/.local/bin $home/.config/emacs/bin
 
       if command -q direnv
+        set -gx DIRENV_LOG_FORMAT ""
         direnv hook fish | source
       end
     '';
