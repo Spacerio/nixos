@@ -31,12 +31,27 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixer"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # setup networking
+  networking = {
+    hostName = "nixer";
+    defaultGateway = {
+      address = "91.154.72.1";
+      interface = "enp4s0";
+    };
+    interfaces.enp4s0 = {
+      useDHCP = false;
+      ipv4.addresses = [{
+        address = "91.154.72.10";
+        prefixLength = 23;
+      }];
+    };
+    networkmanager.enable = false;
+    dhcpcd.enable = false;
+    enableIPv6 = false;
+    nameservers = [ "8.8.8.8" "0.0.0.0" ];
+  };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";
@@ -258,37 +273,6 @@
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  networking = {
-    defaultGateway = {
-      address = "91.154.72.1";
-      interface = "enp4s0";
-    };
-    interfaces.enp4s0 = {
-      useDHCP = false;
-      ipv4.addresses = [{
-        address = "91.154.72.10";
-        prefixLength = 23;
-      }];
-    };
-    networkmanager.enable = false;
-    dhcpcd.enable = false;
-    enableIPv6 = false;
-    nameservers = [ "8.8.8.8" "0.0.0.0" ];
-  };
-
-  #  systemd.network.enable = true;
-  #  systemd.network.networks."enp4s0" = {
-  # matchConfig.Name = "lan";
-  # networkConfig = {
-  # };
-  #  };
 
   #enable audio through pipewire
   hardware.pulseaudio.enable = false;
