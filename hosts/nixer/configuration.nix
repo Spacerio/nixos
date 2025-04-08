@@ -28,30 +28,24 @@
   '';
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
   # setup networking
   networking = {
     hostName = "nixer";
-    defaultGateway = {
-      address = "91.154.72.1";
-      interface = "enp4s0";
-    };
-    interfaces.enp4s0 = {
-      useDHCP = false;
-      ipv4.addresses = [{
-        address = "91.154.72.10";
-        prefixLength = 23;
-      }];
-    };
+    # defaultGateway = {
+    #   address = "192.168.1.1";
+    #   interface = "enp4s0";
+    # };
+    # interfaces.enp4s0 = {
+    #   ipv4.addresses = [{
+    #     address = "192.168.1.100";
+    #     prefixLength = 23;
+    #   }];
+    # };
     networkmanager.enable = false;
-    dhcpcd.enable = false;
+    # dhcpcd.enable = false;
     enableIPv6 = false;
     nameservers = [ "8.8.8.8" "0.0.0.0" ];
   };
-
-
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";
@@ -193,12 +187,8 @@
     flake = "/home/lait/dotfiles/nixos";
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
-
-  programs.spicetify = let
+  programs.spicetify = 
+  let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   in {
     enable = true;
@@ -223,6 +213,7 @@
     ];
   };
 
+  # bash as a login shell but fish for interactive use
   programs.bash = {
     interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]] then
@@ -236,11 +227,16 @@
     enable = true;
     libraries = with pkgs; [
       stdenv.cc.cc
-      ncurses.dev
     ];
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  };
+
   environment.sessionVariables = {
+    # hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
 
@@ -251,25 +247,15 @@
     TERM = "xterm";
   };
 
+  # autostart Hyprland
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && exec Hyprland
   '';
 
+  # enable support for flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
+  # automounting services for qmk development
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -287,11 +273,6 @@
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-
-  # hardware.pulseaudio.enable = true;
-  # nixpkgs.config.pulseaudio = true;
-  # hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
-  # services.pipewire.enable = false;
 
   hardware.uinput.enable = true;
   services.kanata = {
