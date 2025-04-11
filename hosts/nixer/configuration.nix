@@ -152,10 +152,8 @@
     slurp
 
     pavucontrol
-    lxqt.pavucontrol-qt
     easyeffects
     pulsemixer
-    sink-rotate
     bluetui
     bluetuith
 
