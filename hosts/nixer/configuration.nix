@@ -31,18 +31,18 @@
   # setup networking
   networking = {
     hostName = "nixer";
-    # defaultGateway = {
-    #   address = "192.168.1.1";
-    #   interface = "enp4s0";
-    # };
-    # interfaces.enp4s0 = {
-    #   ipv4.addresses = [{
-    #     address = "192.168.1.100";
-    #     prefixLength = 23;
-    #   }];
-    # };
+    defaultGateway = {
+      address = "91.154.72.1";
+      interface = "enp4s0";
+    };
+    interfaces.enp4s0 = {
+      ipv4.addresses = [{
+        address = "91.154.72.111";
+        prefixLength = 23;
+      }];
+    };
     networkmanager.enable = false;
-    # dhcpcd.enable = false;
+    dhcpcd.enable = false;
     enableIPv6 = false;
     nameservers = [ "8.8.8.8" "0.0.0.0" ];
   };
@@ -258,7 +258,7 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  #enable audio through pipewire
+  # enable audio through pipewire
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -268,6 +268,7 @@
     jack.enable = true;
   };
 
+  # bluetooth
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
