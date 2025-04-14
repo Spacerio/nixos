@@ -31,19 +31,21 @@
   # setup networking
   networking = {
     hostName = "nixer";
-    defaultGateway = {
-      address = "91.154.72.1";
-      interface = "enp4s0";
-    };
-    interfaces.enp4s0 = {
-      ipv4.addresses = [{
-        address = "91.154.72.111";
-        prefixLength = 23;
-      }];
-    };
-    networkmanager.enable = false;
+    # Setting an static ip doesn't work when not connected via a router
+    # Windows prefers direct connection, using networkmanager as dhcpcd is slow
+    # defaultGateway = {
+    #   address = "91.154.72.1";
+    #   interface = "enp4s0";
+    # };
+    # interfaces.enp4s0 = {
+    #   ipv4.addresses = [{
+    #     address = "91.154.72.111";
+    #     prefixLength = 23;
+    #   }];
+    # };
+    networkmanager.enable = true;
     dhcpcd.enable = false;
-    enableIPv6 = false;
+    enableIPv6 = true;
     nameservers = [ "8.8.8.8" "0.0.0.0" ];
   };
 
