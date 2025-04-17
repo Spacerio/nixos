@@ -11,7 +11,6 @@ in {
   programs.fish = {
     enable = true;
     shellAliases = {
-      lg = "lazygit -ucf='/home/lait/.config/lazygit/config.yml,/home/lait/.cache/wal/colors-lazygit.yml'";
       v = "nvim .";
       ns = "nix-shell --run fish";
       dev = "nix develop";

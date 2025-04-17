@@ -35,9 +35,9 @@
     enable = true;
     userName = "Oiva Laitinen";
     userEmail = "oiva.laitinen2@gmail.com";
-    # extraConfig = {
-    #   credential.helper = "oauth";
-    # };
+    extraConfig = {
+      pull.rebase = "true";
+    };
   };
 
   programs.ghostty.enable = true;
