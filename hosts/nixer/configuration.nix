@@ -164,6 +164,8 @@
     spotify-player
     cava
 
+    # texlive for latex
+    texlive.combined.scheme-medium
     # update with flake update neovim-nightly
     inputs.neovim-nightly.packages.${pkgs.system}.default
   ];

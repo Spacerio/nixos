@@ -52,6 +52,8 @@
     package = pkgs.unstable.emacs;
   };
 
+  programs.zathura.enable = true;
+
   gtk = {
     enable = true;
     theme = {
