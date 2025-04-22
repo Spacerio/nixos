@@ -42,6 +42,17 @@
 
   programs.ghostty.enable = true;
 
+  programs.neovide = {
+    enable = true;
+    package = pkgs.unstable.neovide;
+    settings = {
+      maximized = false;
+      font = {
+        normal = ["JetBrainsMono Nerd Font"];
+      };
+    };
+  };
+
   programs.helix = {
     enable = true;
     package = pkgs.unstable.helix;
