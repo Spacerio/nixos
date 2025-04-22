@@ -12,6 +12,7 @@ in {
     enable = true;
     shellAliases = {
       v = "nvim .";
+      lg = "lazygit";
       ns = "nix-shell --run fish";
       dev = "nix develop";
     };

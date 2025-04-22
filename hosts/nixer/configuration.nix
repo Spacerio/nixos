@@ -135,6 +135,7 @@
     fd
     bat
     eza
+    lsd
     dust
     nix-init
     nix-index
