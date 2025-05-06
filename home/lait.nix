@@ -28,6 +28,10 @@
 
     ispell
     wordnet
+
+    #GUI
+    libreoffice
+    gimp
   ];
 
   programs.gh.enable = true;
