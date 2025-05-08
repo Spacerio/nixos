@@ -90,6 +90,15 @@
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "lait";
+  
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    user = "lait";
+    group = "users";
+    dataDir = "/home/lait";
+    openDefaultPorts = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config = {
