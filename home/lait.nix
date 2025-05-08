@@ -29,9 +29,13 @@
     ispell
     wordnet
 
-    #GUI
+    # GUI
     libreoffice
     gimp
+
+    # Passwords
+    keepassxc
+    bitwarden-desktop
   ];
 
   programs.gh.enable = true;
