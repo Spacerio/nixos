@@ -11,10 +11,10 @@ in {
   programs.fish = {
     enable = true;
     shellAliases = {
-      v = "nvim .";
       lg = "lazygit";
       ns = "nix-shell --run fish";
       dev = "nix develop";
+      lazyvim = "NVIM_APPNAME=lazyvim nvim";
     };
     plugins = map plugin [
       "tide"
@@ -22,6 +22,13 @@ in {
       "z"
     ];
     functions = {
+      v = ''
+        if set -q argv[1]
+          nvim $argv
+        else
+          nvim .
+        end
+      '';
       ta = ''
         if set -q argv[1]
           set session $argv[1]
