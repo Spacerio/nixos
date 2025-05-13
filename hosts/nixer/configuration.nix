@@ -129,7 +129,6 @@
     qutebrowser
     unstable.librewolf
     unstable.floorp
-    keepassxc
     jetbrains.rider
     wezterm
     kitty
@@ -225,6 +224,8 @@
     ];
   };
 
+  programs.steam.enable = true;
+
   # bash as a login shell but fish for interactive use
   programs.bash = {
     interactiveShellInit = ''
@@ -250,6 +251,8 @@
   environment.sessionVariables = {
     # hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
+    # flake for nh, not working
+    FLAKE = "/home/lait/dotfiles/nixos";
   };
 
   environment.variables = {

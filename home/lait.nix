@@ -32,10 +32,12 @@
     # GUI
     libreoffice
     gimp
+    zathura
 
     # Passwords
     keepassxc
     bitwarden-desktop
+
   ];
 
   programs.gh.enable = true;
@@ -50,6 +52,21 @@
 
   programs.ghostty.enable = true;
 
+  programs.helix = {
+    enable = true;
+    package = pkgs.unstable.helix;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.unstable.emacs;
+  };
+
   programs.neovide = {
     enable = true;
     package = pkgs.unstable.neovide;
@@ -60,18 +77,6 @@
       };
     };
   };
-
-  programs.helix = {
-    enable = true;
-    package = pkgs.unstable.helix;
-  };
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.unstable.emacs;
-  };
-
-  programs.zathura.enable = true;
 
   gtk = {
     enable = true;
