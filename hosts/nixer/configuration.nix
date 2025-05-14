@@ -64,7 +64,6 @@
     qutebrowser
     librewolf
     floorp
-    jetbrains.rider
     wezterm
     kitty
     tmux
