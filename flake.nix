@@ -21,22 +21,22 @@
     home-manager,
     ...
   } @ inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-      };
-      modules = [
-        ./configuration.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.lait = import ./home.nix;
-        }
-      ];
-    };
+    # nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    #   system = "x86_64-linux";
+    #   specialArgs = {
+    #     inherit inputs;
+    #   };
+    #   modules = [
+    #     ./configuration.nix
+    #
+    #     home-manager.nixosModules.home-manager
+    #     {
+    #       home-manager.useGlobalPkgs = true;
+    #       home-manager.useUserPackages = true;
+    #       home-manager.users.lait = import ./home.nix;
+    #     }
+    #   ];
+    # };
 
     nixosConfigurations.nixer = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -44,7 +44,7 @@
         inherit inputs;
       };
       modules = [
-        ./hosts/nixer/configuration.nix
+        ./hosts/nixer.nix
 
         home-manager.nixosModules.home-manager
         {

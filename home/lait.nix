@@ -4,8 +4,7 @@
   ...
 }: {
   imports = [
-    ../modules
-    ../modules/terminal/fish.nix
+    ../modules/hm/default.nix
   ];
   home.username = "lait";
   home.homeDirectory = "/home/lait";
