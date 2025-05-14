@@ -44,7 +44,8 @@
         inherit inputs;
       };
       modules = [
-        ./hosts/nixer.nix
+        ./hosts/nixer/configuration.nix
+        ./hosts/nixer/hardware-configuration.nix
 
         home-manager.nixosModules.home-manager
         {

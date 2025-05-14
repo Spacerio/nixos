@@ -8,9 +8,8 @@
   ...
 }: {
   imports = [
-    ../hardware/systems/T530.nix
-    ../modules/virtualization.nix
-    ../modules/udev.nix
+    ../../modules/virtualization.nix
+    ../../modules/udev.nix
     inputs.spicetify-nix.nixosModules.default
   ];
 
