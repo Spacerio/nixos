@@ -5,6 +5,10 @@
   ...
 }: {
   # configure udev rules for qmk flashing
+  options.my = {
+    udev.enable = lib.mkEnableOption "udev";
+  };
+  config = {
   services.udev.extraRules = ''
 
     # Atmel DFU
@@ -97,4 +101,5 @@
     # AT32 DFU
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e3c", ATTRS{idProduct}=="df11", TAG+="uaccess"
   '';
+  };
 }

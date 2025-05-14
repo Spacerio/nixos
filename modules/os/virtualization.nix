@@ -4,14 +4,10 @@
   config,
   ...
 }: {
-  options.virtualization = {
-    enabled = lib.mkOption {
-      default = true;
-      type = lib.types.bool;
-      description = "enable virtualization or not";
-    };
+  options.my = {
+    virtualization.enable = lib.mkEnableOption "virtualization";
   };
-  config = lib.mkIf (config.virtualization.enabled) {
+  config = lib.mkIf config.my.virtualization.enable {
     programs.virt-manager.enable = true;
     virtualisation.libvirtd.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
