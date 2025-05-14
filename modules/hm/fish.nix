@@ -1,13 +1,21 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: let
+}: 
+let
   plugin = name: {
     name = "${name}";
     src = pkgs.fishPlugins.${name}.src;
   };
-in {
+in 
+
+{
+  options.fish = {
+    enable = lib.mkEnableOption "fish";
+  };
+  config = lib.mkIf config.fish.enable {
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -19,7 +27,6 @@ in {
     plugins = map plugin [
       "tide"
       "fzf"
-      "z"
     ];
     functions = {
       v = ''
@@ -108,5 +115,6 @@ in {
         direnv hook fish | source
       end
     '';
+  };
   };
 }

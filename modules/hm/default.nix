@@ -1,10 +1,8 @@
 { config, pkgs, lib, ... }: {
-  options = {
-    enableFish = lib.mkOption {
-    };
-  };
   imports = [
     ./fish.nix
-    ./symlinks.nix
+    ./dotfiles.nix
   ];
+  config.fish.enable = lib.mkDefault true;
+  config.dotfiles.enable = lib.mkDefault true;
 }
