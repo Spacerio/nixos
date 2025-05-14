@@ -10,6 +10,7 @@
   imports = [
     ../../hardware
     ../../modules/os
+    ../../modules/services
     inputs.spicetify-nix.nixosModules.default
   ];
 
@@ -35,15 +36,6 @@
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "lait";
-
-  # Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "lait";
-    group = "users";
-    dataDir = "/home/lait";
-    openDefaultPorts = true;
-  };
 
   # Allow unfree packages
   nixpkgs.config = {
@@ -213,50 +205,6 @@
 
   # enable support for flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # automounting services for qmk development
-  services.devmon.enable = true;
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-
-  # enable audio through pipewire
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
-  # bluetooth
-  services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  hardware.uinput.enable = true;
-  services.kanata = {
-    enable = true;
-    keyboards = {
-      "logi".config = ''
-        (defsrc
-          caps
-        )
-
-        (deflayer base
-          esc
-        )
-      '';
-    };
-  };
-
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    nvidiaSettings = true;
-    open = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
