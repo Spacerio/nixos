@@ -11,7 +11,6 @@
     ../../hardware
     ../../modules/os
     ../../modules/services
-    inputs.spicetify-nix.nixosModules.default
   ];
 
   fonts.packages = with pkgs.unstable; [
@@ -133,31 +132,6 @@
   programs.nh = {
     enable = true;
     flake = "/home/lait/dotfiles/nixos";
-  };
-
-  programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in {
-    enable = true;
-    # theme = spicePkgs.themes.text;
-    # colorScheme = "CatppuccinMocha";
-    theme = spicePkgs.themes.bloom;
-    colorScheme = "Dark";
-
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      hidePodcasts
-      shuffle # shuffle+ (special characters are sanitized out of extension names)
-      fullAppDisplayMod
-      keyboardShortcut
-    ];
-    enabledCustomApps = with spicePkgs.apps; [
-      newReleases
-    ];
-    enabledSnippets = with spicePkgs.snippets; [
-      rotatingCoverart
-      pointer
-    ];
   };
 
   programs.steam.enable = true;
