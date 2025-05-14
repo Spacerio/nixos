@@ -13,46 +13,6 @@
     inputs.spicetify-nix.nixosModules.default
   ];
 
-  # setup networking
-  networking = {
-    hostName = "nixer";
-    # Setting an static ip doesn't work when not connected via a router
-    # Windows prefers direct connection, using networkmanager as dhcpcd is slow
-    # defaultGateway = {
-    #   address = "91.154.72.1";
-    #   interface = "enp4s0";
-    # };
-    # interfaces.enp4s0 = {
-    #   ipv4.addresses = [{
-    #     address = "91.154.72.111";
-    #     prefixLength = 23;
-    #   }];
-    # };
-    networkmanager.enable = true;
-    dhcpcd.enable = false;
-    enableIPv6 = true;
-    nameservers = ["8.8.8.8" "0.0.0.0"];
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Helsinki";
-  time.hardwareClockInLocalTime = true;
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fi_FI.UTF-8";
-    LC_IDENTIFICATION = "fi_FI.UTF-8";
-    LC_MEASUREMENT = "fi_FI.UTF-8";
-    LC_MONETARY = "fi_FI.UTF-8";
-    LC_NAME = "fi_FI.UTF-8";
-    LC_NUMERIC = "fi_FI.UTF-8";
-    LC_PAPER = "fi_FI.UTF-8";
-    LC_TELEPHONE = "fi_FI.UTF-8";
-    LC_TIME = "fi_FI.UTF-8";
-  };
-
   fonts.packages = with pkgs.unstable; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
