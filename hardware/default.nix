@@ -2,5 +2,5 @@
   imports = [
     ./grub.nix
   ];
-  config.grub.enable = lib.mkDefault true;
+  config.my.grub.enable = lib.mkDefault true;
 }

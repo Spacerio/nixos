@@ -9,10 +9,10 @@
     src = pkgs.fishPlugins.${name}.src;
   };
 in {
-  options.fish = {
+  options.my.fish = {
     enable = lib.mkEnableOption "fish";
   };
-  config = lib.mkIf config.fish.enable {
+  config = lib.mkIf config.my.fish.enable {
     programs.fish = {
       enable = true;
       shellAliases = {

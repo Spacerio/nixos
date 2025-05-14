@@ -1,10 +1,10 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.my = {
     grub.enable = lib.mkEnableOption "grub";
   };
-  config = lib.mkIf config.grub.enable {
+  config = lib.mkIf config.my.grub.enable {
     boot.loader.systemd-boot.enable = false;
     boot.loader.grub.enable = true;
     boot.loader.grub.device = "nodev";
