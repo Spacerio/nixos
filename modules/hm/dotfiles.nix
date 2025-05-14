@@ -1,4 +1,8 @@
-{ config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   options = {
     dotfiles.enable = lib.mkEnableOption "dotfiles";
     dotfiles.path = lib.mkOption {

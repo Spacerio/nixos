@@ -46,7 +46,7 @@
     networkmanager.enable = true;
     dhcpcd.enable = false;
     enableIPv6 = true;
-    nameservers = [ "8.8.8.8" "0.0.0.0" ];
+    nameservers = ["8.8.8.8" "0.0.0.0"];
   };
 
   # Set your time zone.
@@ -90,7 +90,7 @@
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "lait";
-  
+
   # Syncthing
   services.syncthing = {
     enable = true;
@@ -198,8 +198,7 @@
     flake = "/home/lait/dotfiles/nixos";
   };
 
-  programs.spicetify = 
-  let
+  programs.spicetify = let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   in {
     enable = true;

@@ -36,7 +36,6 @@
     # Passwords
     keepassxc
     bitwarden-desktop
-
   ];
 
   programs.gh.enable = true;
