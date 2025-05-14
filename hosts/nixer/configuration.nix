@@ -80,9 +80,11 @@
     eza
     lsd
     dust
+    dua
     nix-init
     nix-index
     nix-inspect
+    nix-fast-build
 
     rofi-wayland
     wofi
