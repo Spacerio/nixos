@@ -49,8 +49,7 @@
     })
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # TODO: orgnize and modularize these packages
   environment.systemPackages = with pkgs; [
     coreutils
     libtool
@@ -157,25 +156,6 @@
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
-
-  environment.sessionVariables = {
-    # hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
-    # flake for nh, not working
-    FLAKE = "/home/lait/dotfiles/nixos";
-  };
-
-  environment.variables = {
-    EDITOR = "vim";
-    SUDO_EDITOR = "vim";
-    VISUAL = "vim";
-    TERM = "xterm";
-  };
-
-  # autostart Hyprland
-  environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && exec Hyprland
-  '';
 
   # enable support for flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
