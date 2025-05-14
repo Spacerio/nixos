@@ -13,7 +13,7 @@
     ../../modules/services
   ];
 
-  fonts.packages = with pkgs.unstable; [
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
     nerd-fonts.fira-code
@@ -41,13 +41,13 @@
     allowUnfree = true;
   };
 
-  nixpkgs.overlays = [
-    (final: _prev: {
-      unstable = import inputs.nixpkgs-unstable {
-        inherit (final) system config;
-      };
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: _prev: {
+  #     unstable = import inputs.nixpkgs-unstable {
+  #       inherit (final) system config;
+  #     };
+  #   })
+  # ];
 
   # TODO: orgnize and modularize these packages
   environment.systemPackages = with pkgs; [
@@ -58,12 +58,12 @@
     wget
     gnumake
     cmake
-    unstable.lazygit
+    lazygit
     gitui
     firefox
     qutebrowser
-    unstable.librewolf
-    unstable.floorp
+    librewolf
+    floorp
     jetbrains.rider
     wezterm
     kitty
@@ -86,7 +86,7 @@
 
     rofi-wayland
     wofi
-    unstable.tofi
+    tofi
     waybar
     pywal
     pyprland
@@ -122,7 +122,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = pkgs.unstable.hyprland;
+    package = pkgs.hyprland;
   };
 
   programs.fish.enable = true;

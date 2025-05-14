@@ -19,7 +19,7 @@
     gdb
     alejandra
 
-    unstable.yazi
+    yazi
     broot
 
     direnv
@@ -52,7 +52,7 @@
 
   programs.helix = {
     enable = true;
-    package = pkgs.unstable.helix;
+    package = pkgs.helix;
   };
 
   programs.zoxide = {
@@ -62,12 +62,12 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.unstable.emacs;
+    package = pkgs.emacs;
   };
 
   programs.neovide = {
     enable = true;
-    package = pkgs.unstable.neovide;
+    package = pkgs.neovide;
     settings = {
       maximized = false;
       font = {
