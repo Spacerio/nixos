@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.my = {
     grub.enable = lib.mkEnableOption "grub";
   };
@@ -17,5 +20,5 @@
       }
     '';
     boot.loader.efi.canTouchEfiVariables = true;
-    };
+  };
 }
