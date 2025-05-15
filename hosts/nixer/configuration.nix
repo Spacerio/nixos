@@ -11,6 +11,7 @@
     ../../hardware
     ../../modules/os
     ../../modules/services
+    ../../modules/packages
   ];
 
   fonts.packages = with pkgs; [
@@ -41,6 +42,7 @@
     allowUnfree = true;
   };
 
+  # TODO: move this to overlays dir
   # nixpkgs.overlays = [
   #   (final: _prev: {
   #     unstable = import inputs.nixpkgs-unstable {
@@ -49,81 +51,16 @@
   #   })
   # ];
 
-  # TODO: orgnize and modularize these packages
   environment.systemPackages = with pkgs; [
-    coreutils
-    libtool
-    gcc
-    git
-    wget
-    gnumake
-    cmake
-    lazygit
-    gitui
-    firefox
-    qutebrowser
-    librewolf
-    floorp
-    wezterm
-    kitty
-    tmux
-    kanata
-
-    htop
-    btop
-    bottom
-    fzf
-    ripgrep
-    fd
-    bat
-    eza
-    lsd
-    dust
-    dua
-    nix-init
-    nix-index
-    nix-inspect
-    nix-fast-build
-
-    rofi-wayland
-    wofi
-    tofi
-    waybar
-    pywal
-    pyprland
-    hyprpaper
-    hyprlock
-    wlogout
-    swww
-    grim
-    slurp
-
-    pavucontrol
-    easyeffects
-    pulsemixer
-    bluetui
-    bluetuith
-
-    ncspot
-    spotify-player
-    cava
-
     # texlive for latex
     texlive.combined.scheme-medium
     # update with flake update neovim-nightly
     inputs.neovim-nightly.packages.${pkgs.system}.default
   ];
 
-  programs.vim.enable = true;
-
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-  };
-
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
   };
 
   programs.fish.enable = true;
