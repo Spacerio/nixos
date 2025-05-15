@@ -11,9 +11,10 @@
     ../../hardware
     ../../modules/os
     ../../modules/services
+    ../../modules/packages
   ];
 
-  fonts.packages = with pkgs.unstable; [
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
     nerd-fonts.fira-code
@@ -41,92 +42,27 @@
     allowUnfree = true;
   };
 
-  nixpkgs.overlays = [
-    (final: _prev: {
-      unstable = import inputs.nixpkgs-unstable {
-        inherit (final) system config;
-      };
-    })
-  ];
+  # TODO: move this to overlays dir
+  # nixpkgs.overlays = [
+  #   (final: _prev: {
+  #     unstable = import inputs.nixpkgs-unstable {
+  #       inherit (final) system config;
+  #     };
+  #   })
+  # ];
 
-  # TODO: orgnize and modularize these packages
   environment.systemPackages = with pkgs; [
-    coreutils
-    libtool
-    gcc
-    git
-    wget
-    gnumake
-    cmake
-    unstable.lazygit
-    gitui
-    firefox
-    qutebrowser
-    unstable.librewolf
-    unstable.floorp
-    jetbrains.rider
-    wezterm
-    kitty
-    tmux
-    kanata
-
-    htop
-    btop
-    bottom
-    fzf
-    ripgrep
-    fd
-    bat
-    eza
-    lsd
-    dust
-    nix-init
-    nix-index
-    nix-inspect
-
-    rofi-wayland
-    wofi
-    unstable.tofi
-    waybar
-    pywal
-    pyprland
-    hyprpaper
-    hyprlock
-    wlogout
-    swww
-    grim
-    slurp
-
-    pavucontrol
-    easyeffects
-    pulsemixer
-    bluetui
-    bluetuith
-
-    ncspot
-    spotify-player
-    cava
-
     # texlive for latex
     texlive.combined.scheme-medium
     # update with flake update neovim-nightly
     inputs.neovim-nightly.packages.${pkgs.system}.default
   ];
 
-  programs.vim.enable = true;
-
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.unstable.hyprland;
-  };
-
-  programs.fish.enable = true;
-  programs.zsh.enable = true;
 
   programs.nh = {
     enable = true;
