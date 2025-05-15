@@ -17,10 +17,10 @@
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
     in {
       enable = true;
-      # theme = spicePkgs.themes.text;
-      # colorScheme = "CatppuccinMocha";
-      theme = spicePkgs.themes.bloom;
-      colorScheme = "Dark";
+      theme = spicePkgs.themes.text;
+      colorScheme = "CatppuccinMocha";
+      # theme = spicePkgs.themes.bloom;
+      # colorScheme = "Dark";
 
       enabledExtensions = with spicePkgs.extensions; [
         adblock
