@@ -9,12 +9,8 @@
   };
   config = lib.mkIf config.my.packages.term.enable {
     environment.systemPackages = with pkgs; [
-      pywal
-      lazygit
-      tmux
-      fzf
-      fish
-      zsh
+      yazi
+      broot
       # rust 
       ripgrep
       fd
@@ -36,5 +32,16 @@
       bluetui
       bluetuith
     ];
+    programs = {
+      direnv = {
+        enable = true;
+        silent = true;
+        nix-direnv.enable = true;
+      };
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+    };
   };
 }

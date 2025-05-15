@@ -13,6 +13,11 @@
       kitty
       rofi-wayland
       pavucontrol
+      libreoffice
+      gimp
+      zathura
+      keepassxc
+      bitwarden-desktop
     ];
   };
 }

@@ -63,8 +63,6 @@
     wrapperFeatures.gtk = true;
   };
 
-  programs.fish.enable = true;
-  programs.zsh.enable = true;
 
   programs.nh = {
     enable = true;

@@ -21,6 +21,8 @@
       ncspot
       cava
       easyeffects
+      ispell
+      wordnet
     ];
   };
 }

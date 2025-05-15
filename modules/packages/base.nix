@@ -14,13 +14,15 @@
       gcc
       git
       vim
+      helix
+      emacs
       gnumake
       pywal
       lazygit
       tmux
       fzf
-      fish
       zsh
     ];
+    programs.fish.enable = true;
   };
 }

@@ -10,32 +10,6 @@
   home.homeDirectory = "/home/lait";
 
   home.packages = with pkgs; [
-    nil
-    nixd
-    bash-language-server
-    lua-language-server
-    csharp-ls
-    clang-tools
-    gdb
-    alejandra
-
-    yazi
-    broot
-
-    direnv
-    nix-direnv
-
-    ispell
-    wordnet
-
-    # GUI
-    libreoffice
-    gimp
-    zathura
-
-    # Passwords
-    keepassxc
-    bitwarden-desktop
   ];
 
   programs.gh.enable = true;
@@ -49,21 +23,6 @@
   };
 
   programs.ghostty.enable = true;
-
-  programs.helix = {
-    enable = true;
-    package = pkgs.helix;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs;
-  };
 
   programs.neovide = {
     enable = true;

@@ -9,6 +9,14 @@
   };
   config = lib.mkIf config.my.packages.lsp.enable {
     environment.systemPackages = with pkgs; [
+      nil
+      nixd
+      bash-language-server
+      lua-language-server
+      csharp-ls
+      clang-tools
+      gdb
+      alejandra
     ];
   };
 }
