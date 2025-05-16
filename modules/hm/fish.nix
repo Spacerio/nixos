@@ -92,8 +92,6 @@ in {
           export FZF_DEFAULT_COMMAND='fd -H -E .git .'
         end
 
-
-
         bind \en 'nvim -c ":lua Snacks.picker.smart()"'
         bind \eg 'nvim -c ":lua Snacks.picker.grep()"'
         bind \ed 've'
